@@ -1,9 +1,6 @@
 package programmerzamannow.springdata.jpa.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "customers")
@@ -16,6 +13,9 @@ public class Customer {
 
     @Column(name = "primary_email")
     private String primaryEmail;
+
+    @Enumerated(EnumType.STRING)
+    private CustomerType type;
 
     public String getId() {
         return id;
