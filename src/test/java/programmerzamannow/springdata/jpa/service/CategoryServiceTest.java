@@ -31,4 +31,13 @@ class CategoryServiceTest {
         });
     }
 
+    @Test
+    void programmatic() {
+        // otomatis rollback, karena ketemu error
+        // INI CARA MANUAL menggunakan transactionOperations
+        assertThrows(RuntimeException.class, () -> {
+            categoryService.createCategories();
+        });
+    }
+
 }
