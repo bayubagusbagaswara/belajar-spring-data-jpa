@@ -22,4 +22,18 @@ class CategoryRepositoryTest {
 
         assertNotNull(category.getId());
     }
+
+    @Test
+    void update() {
+        Category category = categoryRepository.findById(1L).orElse(null);
+        assertNotNull(category);
+
+        category.setName("GADGET MURAH");
+        categoryRepository.save(category);
+
+        category = categoryRepository.findById(1L).orElse(null);
+
+        assertNotNull(category);
+        assertEquals("GADGET MURAH", category.getName());
+    }
 }
